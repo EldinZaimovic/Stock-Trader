@@ -1,38 +1,33 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
+<v-app>
+  <Header/>
+    <v-content>  
+     <transition name="router-animation" mode="out-in" enter-active-class="animated slideInDown fast" leave-active-class="animated fadeOut faster">
+        <router-view></router-view>    
+        </transition>
     </v-content>
-  </v-app>
+    <Footer/>
+</v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Header,
+    Footer
   },
-  data () {
-    return {
-      //
-    }
+  created() {
+    this.$store.dispatch("initStocks");
+  },
+  data() {
+    return {};
   }
-}
+};
 </script>
+<style>
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css";
+</style>
