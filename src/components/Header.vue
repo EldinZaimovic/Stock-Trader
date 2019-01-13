@@ -1,6 +1,6 @@
 <template>
 <v-toolbar app scroll-off-screen >
-    <v-toolbar-items class="hidden-sm-and-down">
+    <v-toolbar-items>
         <v-btn class="headline" to="/" flat>
             <span>STOCK</span>
             <span class="font-weight-light">TRADER</span>
